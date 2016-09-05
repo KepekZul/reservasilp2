@@ -24,6 +24,23 @@
         return true;
     }
     </script>
+    <script type="text/javascript">
+    function autocom(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange=function(){
+            if(xhttp.readyState==4 && xhttp.status==200){
+                console.log('tes2');
+                $all = JSON.parse(xhttp.responseText);
+                $data = $all['data'][0];
+                console.log($all);
+                document.forms["formpinjam"]["telp"].value=$data['nomor_telepon_pemohon'];
+                document.forms["formpinjam"]["email"].value=$data['email_pemohon'];
+            }
+        };
+        xhttp.open("get", "/pemohon/"+document.getElementById("nama").value, true);
+        xhttp.send();
+    }
+    </script>
 </head>
 
 <body>
@@ -45,15 +62,15 @@
             <form role="form" onsubmit="return validasi()" name="formpinjam" action="isiPinjam" method="POST">
                 <h4>Nama Lengkap:</h4>
                 <div class="form-group">
-                    <input type="text" name="nama" class="form-control" autocomplete="false" required>
+                    <input type="text" id="nama" name="nama" class="form-control" autocomplete="false" onchange="autocom();" required>
                 </div>
                 <h4>No. Telepon:</h4>
                 <div class="form-group">
-                    <input type="text" name="telp" class="form-control" required>
+                    <input type="text" id="telp" name="telp" class="form-control" required>
                 </div>
                 <h4>Email:</h4>
                 <div class="form-group">
-                    <input type="email" name="email" class="form-control" required>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
                 <h4>Nama Kegiatan:</h4>
                 <div class="form-group">

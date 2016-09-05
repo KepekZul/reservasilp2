@@ -36,6 +36,10 @@ class umumController extends Controller
             return redirect()->back();
         }
     }
+    function autocom($nama){
+        $data = DB::select('select * from pemohon where nama_pemohon = ?', array($nama));
+        return response()->json(['data'=>$data]);
+    }
     function cekRuangan($ruangan, $tanggal){
         $kegiatan = DB::select('call lihatKegiatan(?,?)', array($ruangan, $tanggal));
         return response()->json(['kegiatan'=>$kegiatan]);
@@ -43,11 +47,15 @@ class umumController extends Controller
     function feed($ruang){
         $now = DB::select('call lihatKegiatanSekarang(?)', array($ruang));
         $next = DB::select('call lihatKegiatanBerikut(?)', array($ruang));
-        return view('feed', ['now'=>$now, 'next'=>$next, 'ruang'=>$ruang]);
+        $jam = DB::select('SELECT HOUR(CURTIME()) AS "jam";');
+        $menit = DB::select('SELECT MINUTE(CURTIME()) AS "menit";');
+        return view('feed', ['now'=>$now, 'next'=>$next, 'ruang'=>$ruang, 'jam'=>$jam, 'menit'=>$menit]);
     }
     function feeding($ruang){
         $now = DB::select('call lihatKegiatanSekarang(?)', array($ruang));
         $next = DB::select('call lihatKegiatanBerikut(?)', array($ruang));
-        return response()->json(['now'=>$now, 'next'=>$next, 'ruang'=>$ruang]);
+        $jam = DB::select('SELECT HOUR(CURTIME()) AS "jam";');
+        $menit = DB::select('SELECT MINUTE(CURTIME()) AS "menit";');
+        return response()->json(['now'=>$now, 'next'=>$next, 'ruang'=>$ruang, 'jam'=>$jam, 'menit'=>$menit]);
     }
 }

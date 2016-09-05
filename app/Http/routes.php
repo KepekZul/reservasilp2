@@ -49,3 +49,4 @@ Route::get('/pinjam', 'umumController@pinjam');
 Route::post('/isiPinjam', 'umumController@isiPinjam');
 Route::get('/feeder/{ruang}', 'umumController@feeding');
 Route::get('/feed/{ruang}','umumController@feed');
+Route::get('/pemohon/{nama}', 'umumController@autocom');

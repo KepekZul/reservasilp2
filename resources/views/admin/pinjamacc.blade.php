@@ -21,7 +21,7 @@
 
         <div id="page-wrapper">
 
-            <div class="container-fluid" style="height:100%">
+            <div class="container-fluid" style="height:100vh">
 
                 <!-- Page Heading -->
                 <div class="row">

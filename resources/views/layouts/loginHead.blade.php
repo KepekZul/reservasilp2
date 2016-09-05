@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SI Peminjaman Ruangan dan Informasi Dosen</title>
+<title>Login Admin</title>
 <link rel="icon" href="../img/lp2.png">
 
 <!-- Bootstrap Core CSS -->

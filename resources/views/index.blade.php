@@ -16,7 +16,7 @@
                 <span id="Surabaya_z41c" style="font-size:64px"></span>
                 <script src="http://widget.time.is/id.js"></script>
                 <script>
-                time_is_widget.init({Surabaya_z41c:{template:"TIME<br>DATE", date_format:"dayname, dnum monthname year."}});
+                time_is_widget.init({Surabaya_z41c:{template:"TIME<br>DATE", date_format:"dayname, dnum monthname year"}});
                 </script>
             </div>
         </header>
@@ -30,6 +30,8 @@
                 </ul>
         </div>
         <!-- Footer -->
+        <br>
+        <br>
         <br>
         @include('layouts.footer')
     </div>
